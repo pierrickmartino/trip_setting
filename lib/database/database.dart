@@ -1,4 +1,5 @@
 import 'package:moor/moor.dart';
+import 'package:trip_setting/constant/country.dart';
 import 'package:undo/undo.dart';
 
 import 'db_utils.dart';
@@ -7,25 +8,16 @@ export 'shared.dart';
 
 part 'database.g.dart';
 
-@DataClassName('Parameter')
-class Parameters extends Table {
+@DataClassName('Country')
+class Countries extends Table {
   // autoIncrement automatically sets this to be the primary key
   IntColumn get id => integer().autoIncrement()();
-  TextColumn get originCountry => text().nullable()();
-  TextColumn get originCity => text().nullable()();
-  TextColumn get preference => text().nullable()();
-  IntColumn get adult => integer().nullable().withDefault(const Constant(0))();
-  IntColumn get child => integer().nullable().withDefault(const Constant(0))();
-  IntColumn get baby => integer().nullable().withDefault(const Constant(0))();
-  IntColumn get budgetMin => integer().nullable()();
-  IntColumn get budgetMax => integer().nullable()();
-  DateTimeColumn get beginDate => dateTime().nullable()();
-  DateTimeColumn get endDate => dateTime().nullable()();
+  TextColumn get label => text().nullable()();
   DateTimeColumn get creationDate => dateTime().nullable()();
 }
 
 @UseMoor(
-  tables: [Parameters],
+  tables: [Countries],
 )
 class Database extends _$Database {
   Database(QueryExecutor e) : super(e);
@@ -44,30 +36,37 @@ class Database extends _$Database {
       },
       onUpgrade: (Migrator m, int from, int to) async {
         if (from == 1) {
-          await m.addColumn(parameters, parameters.creationDate);
+          await m.addColumn(countries, countries.creationDate);
         }
       },
       beforeOpen: (details) async {
         if (details.wasCreated) {
-          await into(parameters).insert(ParametersCompanion(
-              originCity: const Value('INIT'),
-              creationDate: Value(DateTime.now())));
+          // init of countries in database based on country.dart
+          for (final initCountry in countryList) {
+            await into(countries).insert(CountriesCompanion(
+                label: Value(initCountry),
+                creationDate: Value(DateTime.now())));
+          }
+
+          // await into(parameters).insert(ParametersCompanion(
+          //     originCity: const Value('INIT'),
+          //     creationDate: Value(DateTime.now())));
         }
       },
     );
   }
 
-  Stream<List<Parameter>> get watchAllParameters => select(parameters).watch();
+  Stream<List<Country>> get watchAllCountries => select(countries).watch();
 
-  Future<dynamic> insertParameter(ParametersCompanion _parameter) async {
-    await into(parameters).insert(_parameter);
+  Future<dynamic> insertCountry(CountriesCompanion _country) async {
+    await into(countries).insert(_country);
   }
 
-  Future<dynamic> updateParameter(Parameter _parameter) async {
-    return updateRow(cs, parameters, _parameter);
+  Future<dynamic> updateCountry(Country _country) async {
+    return updateRow(cs, countries, _country);
   }
 
-  Future<dynamic> deleteParameter(Parameter _parameter) async {
-    await deleteRow(cs, parameters, _parameter);
+  Future<dynamic> deleteCountry(Country _country) async {
+    await deleteRow(cs, countries, _country);
   }
 }

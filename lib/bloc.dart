@@ -11,46 +11,28 @@ class ApplicationBloc extends Cubit<ChangeStack> {
 
   final Database db;
 
-  Stream<List<Parameter>> get getParameters => db.watchAllParameters;
+  Stream<List<Country>> get getCountries => db.watchAllCountries;
 
-  Future<void> insertParameter(
-    String originCity,
-    String originCountry,
-    String preference,
-    int adult,
-    int child,
-    int baby,
-    int budgetMin,
-    int budgetMax,
-    DateTime beginDate,
-    DateTime endDate,
+  Future<void> insertCountry(
+    String label,
     DateTime creationDate,
   ) async {
-    await db.insertParameter(
-      ParametersCompanion(
-        originCity: moor.Value(originCity),
-        originCountry: moor.Value(originCountry),
-        preference: moor.Value(preference),
-        adult: moor.Value(adult),
-        child: moor.Value(child),
-        baby: moor.Value(baby),
-        budgetMin: moor.Value(budgetMin),
-        budgetMax: moor.Value(budgetMax),
-        beginDate: moor.Value(beginDate),
-        endDate: moor.Value(endDate),
+    await db.insertCountry(
+      CountriesCompanion(
+        label: moor.Value(label),
         creationDate: moor.Value(creationDate),
       ),
     );
     emit(db.cs);
   }
 
-  Future<void> deleteParameter(Parameter _parameter) async {
-    await db.deleteParameter(_parameter);
+  Future<void> deleteCountry(Country _country) async {
+    await db.deleteCountry(_country);
     emit(db.cs);
   }
 
-  Future<void> updateParameter(Parameter _parameter) async {
-    await db.updateParameter(_parameter);
+  Future<void> updateCountry(Country _country) async {
+    await db.updateCountry(_country);
     emit(db.cs);
   }
 
