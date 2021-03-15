@@ -13,6 +13,8 @@ class Countries extends Table {
   // autoIncrement automatically sets this to be the primary key
   IntColumn get id => integer().autoIncrement()();
   TextColumn get label => text().nullable()();
+  TextColumn get currency => text().nullable()();
+  IntColumn get security => integer().nullable()();
   DateTimeColumn get creationDate => dateTime().nullable()();
 }
 

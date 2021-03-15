@@ -15,11 +15,15 @@ class ApplicationBloc extends Cubit<ChangeStack> {
 
   Future<void> insertCountry(
     String label,
+    String currency,
+    int security,
     DateTime creationDate,
   ) async {
     await db.insertCountry(
       CountriesCompanion(
         label: moor.Value(label),
+        currency: moor.Value(currency),
+        security: moor.Value(security),
         creationDate: moor.Value(creationDate),
       ),
     );
