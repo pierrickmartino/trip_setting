@@ -30,10 +30,10 @@ class ApplicationBloc extends Cubit<ChangeStack> {
     emit(db.cs);
   }
 
-  Future<void> deleteCountry(Country _country) async {
-    await db.deleteCountry(_country);
-    emit(db.cs);
-  }
+  // Future<void> deleteCountry(Country _country) async {
+  //   await db.deleteCountry(_country);
+  //   emit(db.cs);
+  // }
 
   Future<void> updateCountry(Country _country) async {
     await db.updateCountry(_country);
