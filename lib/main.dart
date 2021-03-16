@@ -80,8 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(snapshot.data[index].label),
-                        subtitle:
-                            Text('Security : ${snapshot.data[index].security}'),
+                        subtitle: Text(
+                            'Security score : ${snapshot.data[index].security}'),
                         trailing: IconButton(
                           icon: const Icon(Icons.edit),
                           onPressed: () {
