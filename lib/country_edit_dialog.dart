@@ -170,13 +170,19 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                             ],
                             onChanged: (value) {
                               setState(() {
-                                _value = value;
+                                //_value = value;
                               });
                             }),
+                      ],
+                    )),
+                Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      children: [
                         Expanded(
                           child: Padding(
                               padding:
-                                  const EdgeInsets.only(left: 20, right: 10),
+                                  const EdgeInsets.only(left: 0, right: 10),
                               child: TextField(
                                 decoration:
                                     InputDecoration(hintText: 'Min (°C)'),
