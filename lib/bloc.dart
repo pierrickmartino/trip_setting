@@ -12,6 +12,9 @@ class ApplicationBloc extends Cubit<ChangeStack> {
   final Database db;
 
   Stream<List<Country>> get getCountries => db.watchAllCountries;
+  Stream<List<WeatherWithCountry>> getWeatherWithCountry(Country _country) {
+    return db.watchWeatherInCountry(_country);
+  }
 
   Future<void> insertCountry(
     String label,

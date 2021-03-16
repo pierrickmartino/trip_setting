@@ -14,6 +14,7 @@ part 'database.g.dart';
 class Countries extends Table {
   // autoIncrement automatically sets this to be the primary key
   IntColumn get id => integer().autoIncrement()();
+  IntColumn get reference => integer()();
   TextColumn get label => text().nullable()();
   TextColumn get currency => text().nullable()();
   IntColumn get security => integer().nullable()();
@@ -24,8 +25,9 @@ class Countries extends Table {
 class Weathers extends Table {
   // autoIncrement automatically sets this to be the primary key
   IntColumn get id => integer().autoIncrement()();
-  IntColumn get country =>
-      integer().nullable().customConstraint('NULL REFERENCES countries(id)')();
+  IntColumn get country => integer()
+      .nullable()
+      .customConstraint('NULL REFERENCES countries(reference)')();
   TextColumn get month => text().nullable()();
   IntColumn get minTemp => integer().nullable()();
   IntColumn get maxTemp => integer().nullable()();
@@ -34,8 +36,15 @@ class Weathers extends Table {
   DateTimeColumn get creationDate => dateTime().nullable()();
 }
 
+class WeatherWithCountry {
+  WeatherWithCountry(this.weather, this.country);
+
+  final Weather weather;
+  final Country country;
+}
+
 @UseMoor(
-  tables: [Countries],
+  tables: [Countries, Weathers],
 )
 class Database extends _$Database {
   Database(QueryExecutor e) : super(e);
@@ -71,6 +80,7 @@ class Database extends _$Database {
 
           for (var i = 0; i < _items.length; i++) {
             await into(countries).insert(CountriesCompanion(
+                reference: Value(_items[i]['Reference']),
                 label: Value(_items[i]['Country']),
                 security: Value(_items[i]['Security']),
                 creationDate: Value(DateTime.now())));
@@ -92,6 +102,30 @@ class Database extends _$Database {
 
   Future<dynamic> updateCountry(Country _country) async {
     return updateRow(cs, countries, _country);
+  }
+
+  /// Watches all Weather in the given [_country]. If the [_country] is null, all
+  /// entries will be shown instead.
+  Stream<List<WeatherWithCountry>> watchWeatherInCountry(Country _country) {
+    final query = select(weathers).join(
+      [innerJoin(countries, countries.reference.equalsExp(weathers.country))],
+    );
+
+    if (_country != null) {
+      query.where(weathers.country.equals(_country.reference));
+    } else {
+      query.where(isNotNull(weathers.id));
+    }
+
+    return query.watch().map((rows) {
+      // read both the transaction and the associated category for each row
+      return rows.map((row) {
+        return WeatherWithCountry(
+          row.readTable(weathers),
+          row.readTable(countries),
+        );
+      }).toList();
+    });
   }
 
   // Future<dynamic> deleteCountry(Country _country) async {

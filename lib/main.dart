@@ -65,8 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: StreamBuilder<List<Country>>(
-          stream: bloc.getCountries,
+        child: StreamBuilder<List<WeatherWithCountry>>(
+          stream: bloc.getWeatherWithCountry(null),
           builder: (context, snapshot) {
             List<Widget> children;
             if (snapshot.hasData) {
@@ -79,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(snapshot.data[index].label),
+                        title: Text(snapshot.data[index].country.label),
                         subtitle: Text(
-                            'Security score : ${snapshot.data[index].security}'),
+                            'Security score : ${snapshot.data[index].country.security}'),
                         trailing: IconButton(
                           icon: const Icon(Icons.edit),
                           onPressed: () {

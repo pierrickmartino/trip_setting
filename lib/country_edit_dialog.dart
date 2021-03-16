@@ -6,7 +6,7 @@ import 'database/database.dart';
 class CountryEditDialog extends StatefulWidget {
   const CountryEditDialog({Key key, this.entry}) : super(key: key);
 
-  final Country entry;
+  final WeatherWithCountry entry;
 
   @override
   _CountryEditDialogState createState() => _CountryEditDialogState();
@@ -19,6 +19,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
   FocusNode textFocusNodeCountry;
   bool _isEditingCountry = false;
   int _value;
+  int _month;
 
   String _validateCountry(String value) {
     value = value.trim();
@@ -39,9 +40,9 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
   @override
   void initState() {
     textControllerCountry = TextEditingController();
-    textControllerCountry.text = widget.entry.security.toString();
+    textControllerCountry.text = widget.entry.country.security.toString();
     textFocusNodeCountry = FocusNode();
-    _value = widget.entry.security;
+    _value = widget.entry.country.security;
     super.initState();
   }
 
@@ -147,7 +148,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                     child: Row(
                       children: [
                         DropdownButton(
-                            value: _value,
+                            value: _month,
                             items: const [
                               DropdownMenuItem(
                                   value: 1, child: Text('January')),
@@ -170,7 +171,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                             ],
                             onChanged: (value) {
                               setState(() {
-                                //_value = value;
+                                _month = value;
                               });
                             }),
                       ],
@@ -181,8 +182,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                       children: [
                         Expanded(
                           child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 0, right: 10),
+                              padding: const EdgeInsets.only(right: 10),
                               child: TextField(
                                 decoration:
                                     InputDecoration(hintText: 'Min (°C)'),
@@ -218,7 +218,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                                 textFocusNodeCountry.unfocus();
                               });
 
-                              final entry = widget.entry.copyWith(
+                              final entry = widget.entry.country.copyWith(
                                 security: _value,
                               );
 
