@@ -223,6 +223,10 @@ class Database extends _$Database {
     return updateRow(cs, countries, _country);
   }
 
+  Future<dynamic> updateWeather(Weather _weather) async {
+    return updateRow(cs, weathers, _weather);
+  }
+
   /// Watches all Weather in the given [_country]. If the [_country] is null, all
   /// entries will be shown instead.
   Stream<List<WeatherWithCountry>> watchWeatherInCountry(Country _country) {

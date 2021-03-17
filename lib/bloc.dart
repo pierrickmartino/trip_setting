@@ -43,6 +43,11 @@ class ApplicationBloc extends Cubit<ChangeStack> {
     emit(db.cs);
   }
 
+  Future<void> updateWeather(Weather _weather) async {
+    await db.updateWeather(_weather);
+    emit(db.cs);
+  }
+
   void init() {
     emit(db.cs);
   }

@@ -26,6 +26,79 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
   bool _isEditingPrec = false;
   int _value;
   int _month;
+  int _min;
+  int _max;
+  int _prec;
+
+  void setWeatherBasedOnMonth(int _month) {
+    switch (_month) {
+      case 1:
+        textControllerMin.text = widget.entry.weather.januaryMin.toString();
+        textControllerMax.text = widget.entry.weather.januaryMax.toString();
+        textControllerPrec.text = widget.entry.weather.januaryPrec.toString();
+        break;
+      case 2:
+        textControllerMin.text = widget.entry.weather.februaryMin.toString();
+        textControllerMax.text = widget.entry.weather.februaryMax.toString();
+        textControllerPrec.text = widget.entry.weather.februaryPrec.toString();
+        break;
+      case 3:
+        textControllerMin.text = widget.entry.weather.marchMin.toString();
+        textControllerMax.text = widget.entry.weather.marchMax.toString();
+        textControllerPrec.text = widget.entry.weather.marchPrec.toString();
+        break;
+      case 4:
+        textControllerMin.text = widget.entry.weather.aprilMin.toString();
+        textControllerMax.text = widget.entry.weather.aprilMax.toString();
+        textControllerPrec.text = widget.entry.weather.aprilPrec.toString();
+        break;
+      case 5:
+        textControllerMin.text = widget.entry.weather.mayMin.toString();
+        textControllerMax.text = widget.entry.weather.mayMax.toString();
+        textControllerPrec.text = widget.entry.weather.mayPrec.toString();
+        break;
+      case 6:
+        textControllerMin.text = widget.entry.weather.juneMin.toString();
+        textControllerMax.text = widget.entry.weather.juneMax.toString();
+        textControllerPrec.text = widget.entry.weather.junePrec.toString();
+        break;
+      case 7:
+        textControllerMin.text = widget.entry.weather.julyMin.toString();
+        textControllerMax.text = widget.entry.weather.julyMax.toString();
+        textControllerPrec.text = widget.entry.weather.julyPrec.toString();
+        break;
+      case 8:
+        textControllerMin.text = widget.entry.weather.augustMin.toString();
+        textControllerMax.text = widget.entry.weather.augustMax.toString();
+        textControllerPrec.text = widget.entry.weather.augustPrec.toString();
+        break;
+      case 9:
+        textControllerMin.text = widget.entry.weather.septemberMin.toString();
+        textControllerMax.text = widget.entry.weather.septemberMax.toString();
+        textControllerPrec.text = widget.entry.weather.septemberPrec.toString();
+        break;
+      case 10:
+        textControllerMin.text = widget.entry.weather.octoberMin.toString();
+        textControllerMax.text = widget.entry.weather.octoberMax.toString();
+        textControllerPrec.text = widget.entry.weather.octoberPrec.toString();
+        break;
+      case 11:
+        textControllerMin.text = widget.entry.weather.novemberMin.toString();
+        textControllerMax.text = widget.entry.weather.novemberMax.toString();
+        textControllerPrec.text = widget.entry.weather.novemberPrec.toString();
+        break;
+      case 12:
+        textControllerMin.text = widget.entry.weather.decemberMin.toString();
+        textControllerMax.text = widget.entry.weather.decemberMax.toString();
+        textControllerPrec.text = widget.entry.weather.decemberPrec.toString();
+        break;
+
+      default:
+        textControllerMin.text = widget.entry.weather.januaryMin.toString();
+        textControllerMax.text = widget.entry.weather.januaryMax.toString();
+        textControllerPrec.text = widget.entry.weather.januaryPrec.toString();
+    }
+  }
 
   @override
   void initState() {
@@ -43,6 +116,10 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
 
     _value = widget.entry.country.security;
     _month = 1;
+    _min = widget.entry.weather.januaryMin;
+    _max = widget.entry.weather.januaryMax;
+    _prec = widget.entry.weather.januaryPrec;
+
     super.initState();
   }
 
@@ -67,9 +144,18 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                     style: Theme.of(context).textTheme.headline5,
                   ),
                 ),
-                const SizedBox(height: 30),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 8),
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: Center(
+                    child: Text(
+                      widget.entry.country.label,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                  ),
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20, bottom: 8),
                   child: Text('Edit Security',
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.subtitle2),
@@ -151,27 +237,58 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                             value: _month,
                             items: const [
                               DropdownMenuItem(
-                                  value: 1, child: Text('January')),
+                                value: 1,
+                                child: Text('January'),
+                              ),
                               DropdownMenuItem(
-                                  value: 2, child: Text('February')),
-                              DropdownMenuItem(value: 3, child: Text('March')),
-                              DropdownMenuItem(value: 4, child: Text('April')),
-                              DropdownMenuItem(value: 5, child: Text('May')),
-                              DropdownMenuItem(value: 6, child: Text('June')),
-                              DropdownMenuItem(value: 7, child: Text('July')),
-                              DropdownMenuItem(value: 8, child: Text('August')),
+                                value: 2,
+                                child: Text('February'),
+                              ),
                               DropdownMenuItem(
-                                  value: 9, child: Text('September')),
+                                value: 3,
+                                child: Text('March'),
+                              ),
                               DropdownMenuItem(
-                                  value: 10, child: Text('October')),
+                                value: 4,
+                                child: Text('April'),
+                              ),
                               DropdownMenuItem(
-                                  value: 11, child: Text('November')),
+                                value: 5,
+                                child: Text('May'),
+                              ),
                               DropdownMenuItem(
-                                  value: 12, child: Text('December')),
+                                value: 6,
+                                child: Text('June'),
+                              ),
+                              DropdownMenuItem(
+                                value: 7,
+                                child: Text('July'),
+                              ),
+                              DropdownMenuItem(
+                                value: 8,
+                                child: Text('August'),
+                              ),
+                              DropdownMenuItem(
+                                value: 9,
+                                child: Text('September'),
+                              ),
+                              DropdownMenuItem(
+                                value: 10,
+                                child: Text('October'),
+                              ),
+                              DropdownMenuItem(
+                                value: 11,
+                                child: Text('November'),
+                              ),
+                              DropdownMenuItem(
+                                value: 12,
+                                child: Text('December'),
+                              ),
                             ],
                             onChanged: (value) {
                               setState(() {
                                 _month = value;
+                                setWeatherBasedOnMonth(_month);
                               });
                             }),
                       ],
@@ -190,6 +307,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                                 controller: textControllerMin,
                                 onChanged: (value) {
                                   setState(() {
+                                    _min = int.parse(value);
                                     _isEditingMin = true;
                                   });
                                 },
@@ -213,6 +331,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                                 controller: textControllerMax,
                                 onChanged: (value) {
                                   setState(() {
+                                    _max = int.parse(value);
                                     _isEditingMax = true;
                                   });
                                 },
@@ -233,6 +352,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                           controller: textControllerPrec,
                           onChanged: (value) {
                             setState(() {
+                              _prec = int.parse(value);
                               _isEditingPrec = true;
                             });
                           },
@@ -259,22 +379,140 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                             onPressed: () {
                               setState(() {
                                 textFocusNodeMin.unfocus();
+                                textFocusNodeMax.unfocus();
+                                textFocusNodePrec.unfocus();
                               });
 
-                              final entry = widget.entry.country.copyWith(
+                              final Country _country =
+                                  widget.entry.country.copyWith(
                                 security: _value,
                               );
 
                               BlocProvider.of<ApplicationBloc>(context)
-                                  .updateCountry(entry);
+                                  .updateCountry(_country);
+
+                              Weather _weather;
+                              switch (_month) {
+                                case 1:
+                                  _weather = widget.entry.weather.copyWith(
+                                    januaryMin: _min,
+                                    januaryMax: _max,
+                                    januaryAvg: (_min + _max) / 2,
+                                    januaryPrec: _prec,
+                                  );
+                                  break;
+                                case 2:
+                                  _weather = widget.entry.weather.copyWith(
+                                    februaryMin: _min,
+                                    februaryMax: _max,
+                                    februaryAvg: (_min + _max) / 2,
+                                    februaryPrec: _prec,
+                                  );
+                                  break;
+                                case 3:
+                                  _weather = widget.entry.weather.copyWith(
+                                    marchMin: _min,
+                                    marchMax: _max,
+                                    marchAvg: (_min + _max) / 2,
+                                    marchPrec: _prec,
+                                  );
+                                  break;
+                                case 4:
+                                  _weather = widget.entry.weather.copyWith(
+                                    aprilMin: _min,
+                                    aprilMax: _max,
+                                    aprilAvg: (_min + _max) / 2,
+                                    aprilPrec: _prec,
+                                  );
+                                  break;
+                                case 5:
+                                  _weather = widget.entry.weather.copyWith(
+                                    mayMin: _min,
+                                    mayMax: _max,
+                                    mayAvg: (_min + _max) / 2,
+                                    mayPrec: _prec,
+                                  );
+                                  break;
+                                case 6:
+                                  _weather = widget.entry.weather.copyWith(
+                                    juneMin: _min,
+                                    juneMax: _max,
+                                    juneAvg: (_min + _max) / 2,
+                                    junePrec: _prec,
+                                  );
+                                  break;
+                                case 7:
+                                  _weather = widget.entry.weather.copyWith(
+                                    julyMin: _min,
+                                    julyMax: _max,
+                                    julyAvg: (_min + _max) / 2,
+                                    julyPrec: _prec,
+                                  );
+                                  break;
+                                case 8:
+                                  _weather = widget.entry.weather.copyWith(
+                                    augustMin: _min,
+                                    augustMax: _max,
+                                    augustAvg: (_min + _max) / 2,
+                                    augustPrec: _prec,
+                                  );
+                                  break;
+                                case 9:
+                                  _weather = widget.entry.weather.copyWith(
+                                    septemberMin: _min,
+                                    septemberMax: _max,
+                                    septemberAvg: (_min + _max) / 2,
+                                    septemberPrec: _prec,
+                                  );
+                                  break;
+                                case 10:
+                                  _weather = widget.entry.weather.copyWith(
+                                    octoberMin: _min,
+                                    octoberMax: _max,
+                                    octoberAvg: (_min + _max) / 2,
+                                    octoberPrec: _prec,
+                                  );
+                                  break;
+                                case 11:
+                                  _weather = widget.entry.weather.copyWith(
+                                    novemberMin: _min,
+                                    novemberMax: _max,
+                                    novemberAvg: (_min + _max) / 2,
+                                    novemberPrec: _prec,
+                                  );
+                                  break;
+                                case 12:
+                                  _weather = widget.entry.weather.copyWith(
+                                    decemberMin: _min,
+                                    decemberMax: _max,
+                                    decemberAvg: (_min + _max) / 2,
+                                    decemberPrec: _prec,
+                                  );
+                                  break;
+                                default:
+                                  _weather = widget.entry.weather.copyWith(
+                                    januaryMin: _min,
+                                    januaryMax: _max,
+                                    januaryAvg: (_min + _max) / 2,
+                                    januaryPrec: _prec,
+                                  );
+                              }
+
+                              BlocProvider.of<ApplicationBloc>(context)
+                                  .updateWeather(_weather);
 
                               textControllerMin.text = '0';
+                              textControllerMax.text = '0';
+                              textControllerPrec.text = '0';
                               _isEditingMin = false;
+                              _isEditingMax = false;
+                              _isEditingPrec = false;
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   backgroundColor: Colors.green,
-                                  content: Text('Country successfully edited'),
+                                  content:
+                                      Text('Country info successfully edited'),
                                 ),
                               );
 
@@ -298,10 +536,16 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                             onPressed: () {
                               setState(() {
                                 textFocusNodeMin.unfocus();
+                                textFocusNodeMax.unfocus();
+                                textFocusNodePrec.unfocus();
                               });
 
                               textControllerMin.text = '0';
+                              textControllerMax.text = '0';
+                              textControllerPrec.text = '0';
                               _isEditingMin = false;
+                              _isEditingMax = false;
+                              _isEditingPrec = false;
 
                               Navigator.of(context, rootNavigator: true).pop();
                             },
