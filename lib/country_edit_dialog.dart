@@ -15,34 +15,34 @@ class CountryEditDialog extends StatefulWidget {
 class _CountryEditDialogState extends State<CountryEditDialog> {
   ApplicationBloc get bloc => BlocProvider.of<ApplicationBloc>(context);
 
-  TextEditingController textControllerCountry;
-  FocusNode textFocusNodeCountry;
-  bool _isEditingCountry = false;
+  TextEditingController textControllerMin;
+  TextEditingController textControllerMax;
+  TextEditingController textControllerPrec;
+  FocusNode textFocusNodeMin;
+  FocusNode textFocusNodeMax;
+  FocusNode textFocusNodePrec;
+  bool _isEditingMin = false;
+  bool _isEditingMax = false;
+  bool _isEditingPrec = false;
   int _value;
   int _month;
 
-  String _validateCountry(String value) {
-    value = value.trim();
-
-    if (textControllerCountry.text != null) {
-      if (value.isEmpty) {
-        return "Country can't be empty";
-      } else if (!value.contains(
-        RegExp(r"^[a-zA-Z0-9]+"),
-      )) {
-        return 'Enter a correct Country';
-      }
-    }
-
-    return null;
-  }
-
   @override
   void initState() {
-    textControllerCountry = TextEditingController();
-    textControllerCountry.text = widget.entry.country.security.toString();
-    textFocusNodeCountry = FocusNode();
+    textControllerMin = TextEditingController();
+    textControllerMax = TextEditingController();
+    textControllerPrec = TextEditingController();
+
+    textControllerMin.text = widget.entry.weather.januaryMin.toString();
+    textControllerMax.text = widget.entry.weather.januaryMax.toString();
+    textControllerPrec.text = widget.entry.weather.januaryPrec.toString();
+
+    textFocusNodeMin = FocusNode();
+    textFocusNodeMax = FocusNode();
+    textFocusNodePrec = FocusNode();
+
     _value = widget.entry.country.security;
+    _month = 1;
     super.initState();
   }
 
@@ -184,8 +184,22 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                           child: Padding(
                               padding: const EdgeInsets.only(right: 10),
                               child: TextField(
-                                decoration:
-                                    InputDecoration(hintText: 'Min (°C)'),
+                                focusNode: textFocusNodeMin,
+                                keyboardType: TextInputType.number,
+                                textInputAction: TextInputAction.next,
+                                controller: textControllerMin,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _isEditingMin = true;
+                                  });
+                                },
+                                onSubmitted: (value) {
+                                  textFocusNodeMin.unfocus();
+                                },
+                                decoration: const InputDecoration(
+                                  hintText: 'Min (°C)',
+                                  helperText: 'Min (°C)',
+                                ),
                               )),
                         ),
                         Expanded(
@@ -193,13 +207,42 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                               padding:
                                   const EdgeInsets.only(left: 10, right: 20),
                               child: TextField(
-                                decoration:
-                                    InputDecoration(hintText: 'Max (°C)'),
+                                focusNode: textFocusNodeMax,
+                                keyboardType: TextInputType.number,
+                                textInputAction: TextInputAction.next,
+                                controller: textControllerMax,
+                                onChanged: (value) {
+                                  setState(() {
+                                    _isEditingMax = true;
+                                  });
+                                },
+                                onSubmitted: (value) {
+                                  textFocusNodeMax.unfocus();
+                                },
+                                decoration: const InputDecoration(
+                                  hintText: 'Max (°C)',
+                                  helperText: 'Max (°C)',
+                                ),
                               )),
                         ),
                         Expanded(
                             child: TextField(
-                          decoration: InputDecoration(hintText: 'Precip. (mm)'),
+                          focusNode: textFocusNodePrec,
+                          keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.next,
+                          controller: textControllerPrec,
+                          onChanged: (value) {
+                            setState(() {
+                              _isEditingPrec = true;
+                            });
+                          },
+                          onSubmitted: (value) {
+                            textFocusNodePrec.unfocus();
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Precip. (mm)',
+                            helperText: 'Precip. (mm)',
+                          ),
                         )),
                       ],
                     )),
@@ -215,7 +258,7 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                           child: OutlinedButton(
                             onPressed: () {
                               setState(() {
-                                textFocusNodeCountry.unfocus();
+                                textFocusNodeMin.unfocus();
                               });
 
                               final entry = widget.entry.country.copyWith(
@@ -225,8 +268,8 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                               BlocProvider.of<ApplicationBloc>(context)
                                   .updateCountry(entry);
 
-                              textControllerCountry.text = '';
-                              _isEditingCountry = false;
+                              textControllerMin.text = '0';
+                              _isEditingMin = false;
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -254,11 +297,11 @@ class _CountryEditDialogState extends State<CountryEditDialog> {
                           child: OutlinedButton(
                             onPressed: () {
                               setState(() {
-                                textFocusNodeCountry.unfocus();
+                                textFocusNodeMin.unfocus();
                               });
 
-                              textControllerCountry.text = '';
-                              _isEditingCountry = false;
+                              textControllerMin.text = '0';
+                              _isEditingMin = false;
 
                               Navigator.of(context, rootNavigator: true).pop();
                             },

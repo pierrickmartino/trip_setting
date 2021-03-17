@@ -27,6 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         RepositoryProvider<Database>(
+            // ignore: avoid_redundant_argument_values
             create: (context) => constructDb(logStatements: false)),
         BlocProvider<ApplicationBloc>(
           create: (context) {
