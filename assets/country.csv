@@ -1,238 +1,238 @@
-﻿Country;Security
-Afghanistan;1
-Albania;5
-Algeria;5
-American Samoa;5
-Andorra;3
-Angola;3
-Anguilla;3
-Antarctica;3
-Antigua and Barbuda;5
-Argentina;5
-Armenia;3
-Aruba;3
-Australia;5
-Austria;5
-Azerbaijan;3
-Bahamas;5
-Bahrain;5
-Bangladesh;5
-Barbados;5
-Belarus;3
-Belgium;3
-Belize;3
-Benin;5
-Bermuda;5
-Bhutan;5
-Bolivia;5
-Bosnia and Herzegovina;3
-Botswana;5
-Brazil;5
-Brunei Darussalam;3
-Bulgaria;3
-Burkina Faso;3
-Burundi;5
-Cambodia;3
-Cameroon;3
-Canada;5
-Cape Verde;5
-Cayman Islands;5
-Central African Republic;3
-Chad;1
-Chile;5
-China;3
-Christmas Island;3
-Cocos (Keeling) Islands;5
-Colombia;3
-Comoros;5
-Democratic Republic of the Congo (Kinshasa);3
-Congo, Republic of (Brazzaville);5
-Cook Islands;3
-Costa Rica;5
-Côte D'ivoire (Ivory Coast);3
-Croatia;5
-Cuba;5
-Cyprus;3
-Czech Republic;3
-Denmark;3
-Djibouti;5
-Dominica;3
-Dominican Republic;5
-East Timor (Timor-Leste);3
-Ecuador;5
-Egypt;5
-El Salvador;5
-Equatorial Guinea;3
-Eritrea;5
-Estonia;5
-Ethiopia;3
-Falkland Islands;3
-Faroe Islands;3
-Fiji;5
-Finland;3
-France;3
-French Guiana;5
-French Polynesia;5
-French Southern Territories;5
-Gabon;3
-The Gambia;5
-Georgia;3
-Germany;3
-Ghana;5
-Gibraltar;3
-Greece;3
-Greenland;3
-Grenada;5
-Guadeloupe;5
-Guam;3
-Guatemala;3
-Guinea;3
-Guinea-Bissau;5
-Guyana;5
-Haiti;5
-Holy See;5
-Honduras;5
-Hong Kong;3
-Hungary;5
-Iceland;5
-India;5
-Indonesia;5
-Iran (Islamic Republic of);5
-Iraq;3
-Ireland;5
-Israel;3
-Italy;3
-Ivory Coast;3
-Jamaica;5
-Japan;5
-Jordan;5
-Kazakhstan;5
-Kenya;3
-Kiribati;5
-Korea, Democratic People's Rep. (North Korea);5
-Korea, Republic of (South Korea);3
-Kosovo;3
-Kuwait;3
-Kyrgyzstan;5
-Lao, People's Democratic Republic;3
-Latvia;3
-Lebanon;5
-Lesotho;5
-Liberia;3
-Libya;3
-Liechtenstein;3
-Lithuania;5
-Luxembourg;5
-Macau;3
-Madagascar;5
-Malawi;5
-Malaysia;5
-Maldives;3
-Mali;5
-Malta;5
-Marshall Islands;5
-Martinique;5
-Mauritania;5
-Mauritius;5
-Mayotte;5
-Mexico;5
-Micronesia, Federal States of;3
-Moldova, Republic of;3
-Monaco;5
-Mongolia;3
-Montenegro;5
-Montserrat;3
-Morocco;5
-Mozambique;5
-Myanmar, Burma;3
-Namibia;5
-Nauru;5
-Nepal;3
-Netherlands;5
-Netherlands Antilles;3
-New Caledonia;3
-New Zealand;5
-Nicaragua;3
-Niger;5
-Nigeria;5
-Niue;3
-North Macedonia;5
-Northern Mariana Islands;3
-Norway;5
-Oman;3
-Pakistan;3
-Palau;5
-Palestinian territories;3
-Panama;5
-Papua New Guinea;3
-Paraguay;5
-Peru;5
-Philippines;3
-Pitcairn Island;3
-Poland;5
-Portugal;3
-Puerto Rico;3
-Qatar;3
-Reunion Island;5
-Romania;3
-Russian Federation;3
-Rwanda;3
-Saint Kitts and Nevis;5
-Saint Lucia;3
-Saint Vincent and the Grenadines;5
-Samoa;5
-San Marino;5
-Sao Tome and Principe;3
-Saudi Arabia;5
-Senegal;5
-Serbia;5
-Seychelles;5
-Sierra Leone;5
-Singapore;5
-Slovakia (Slovak Republic);3
-Slovenia;5
-Solomon Islands;5
-Somalia;1
-South Africa;3
-South Sudan;5
-Spain;5
-Sri Lanka;3
-Sudan;5
-Suriname;5
-Swaziland (Eswatini);3
-Sweden;5
-Switzerland;3
-Syria, Syrian Arab Republic;5
-Taiwan (Republic of China);3
-Tajikistan;3
-"Tanzania; officially the United Republic of Tanzania";5
-Thailand;5
-Tibet;5
-Timor-Leste (East Timor);5
-Togo;3
-Tokelau;3
-Tonga;5
-Trinidad and Tobago;5
-Tunisia;3
-Turkey;5
-Turkmenistan;5
-Turks and Caicos Islands;3
-Tuvalu;5
-Uganda;5
-Ukraine;3
-United Arab Emirates;5
-United Kingdom;5
-United States;3
-Uruguay;3
-Uzbekistan;3
-Vanuatu;3
-Vatican City State (Holy See);3
-Venezuela;3
-Vietnam;3
-Virgin Islands (British);3
-Virgin Islands (U.S.);3
-Wallis and Futuna Islands;5
-Western Sahara;3
-Yemen;5
-Zambia;5
-Zimbabwe;3
+﻿Reference;Country;Security;Currency
+1;Afghanistan;1;XXX
+2;Albania;5;XXX
+3;Algeria;5;XXX
+4;American Samoa;5;XXX
+5;Andorra;3;XXX
+6;Angola;3;XXX
+7;Anguilla;3;XXX
+8;Antarctica;3;XXX
+9;Antigua and Barbuda;5;XXX
+10;Argentina;5;XXX
+11;Armenia;3;XXX
+12;Aruba;3;XXX
+13;Australia;5;XXX
+14;Austria;5;XXX
+15;Azerbaijan;3;XXX
+16;Bahamas;5;XXX
+17;Bahrain;5;XXX
+18;Bangladesh;5;XXX
+19;Barbados;5;XXX
+20;Belarus;3;XXX
+21;Belgium;3;XXX
+22;Belize;3;XXX
+23;Benin;5;XXX
+24;Bermuda;5;XXX
+25;Bhutan;5;XXX
+26;Bolivia;5;XXX
+27;Bosnia and Herzegovina;3;XXX
+28;Botswana;5;XXX
+29;Brazil;5;XXX
+30;Brunei Darussalam;3;XXX
+31;Bulgaria;3;XXX
+32;Burkina Faso;3;XXX
+33;Burundi;5;XXX
+34;Cambodia;3;XXX
+35;Cameroon;3;XXX
+36;Canada;5;XXX
+37;Cape Verde;5;XXX
+38;Cayman Islands;5;XXX
+39;Central African Republic;3;XXX
+40;Chad;1;XXX
+41;Chile;5;XXX
+42;China;3;XXX
+43;Christmas Island;3;XXX
+44;Cocos (Keeling) Islands;5;XXX
+45;Colombia;3;XXX
+46;Comoros;5;XXX
+47;Democratic Republic of the Congo (Kinshasa);3;XXX
+48;Congo, Republic of (Brazzaville);5;XXX
+49;Cook Islands;3;XXX
+50;Costa Rica;5;XXX
+51;Côte D'ivoire (Ivory Coast);3;XXX
+52;Croatia;5;XXX
+53;Cuba;5;XXX
+54;Cyprus;3;XXX
+55;Czech Republic;3;XXX
+56;Denmark;3;XXX
+57;Djibouti;5;XXX
+58;Dominica;3;XXX
+59;Dominican Republic;5;XXX
+60;East Timor (Timor-Leste);3;XXX
+61;Ecuador;5;XXX
+62;Egypt;5;XXX
+63;El Salvador;5;XXX
+64;Equatorial Guinea;3;XXX
+65;Eritrea;5;XXX
+66;Estonia;5;XXX
+67;Ethiopia;3;XXX
+68;Falkland Islands;3;XXX
+69;Faroe Islands;3;XXX
+70;Fiji;5;XXX
+71;Finland;3;XXX
+72;France;3;XXX
+73;French Guiana;5;XXX
+74;French Polynesia;5;XXX
+75;French Southern Territories;5;XXX
+76;Gabon;3;XXX
+77;The Gambia;5;XXX
+78;Georgia;3;XXX
+79;Germany;3;XXX
+80;Ghana;5;XXX
+81;Gibraltar;3;XXX
+82;Greece;3;XXX
+83;Greenland;3;XXX
+84;Grenada;5;XXX
+85;Guadeloupe;5;XXX
+86;Guam;3;XXX
+87;Guatemala;3;XXX
+88;Guinea;3;XXX
+89;Guinea-Bissau;5;XXX
+90;Guyana;5;XXX
+91;Haiti;5;XXX
+92;Holy See;5;XXX
+93;Honduras;5;XXX
+94;Hong Kong;3;XXX
+95;Hungary;5;XXX
+96;Iceland;5;XXX
+97;India;5;XXX
+98;Indonesia;5;XXX
+99;Iran (Islamic Republic of);5;XXX
+100;Iraq;3;XXX
+101;Ireland;5;XXX
+102;Israel;3;XXX
+103;Italy;3;XXX
+104;Ivory Coast;3;XXX
+105;Jamaica;5;XXX
+106;Japan;5;XXX
+107;Jordan;5;XXX
+108;Kazakhstan;5;XXX
+109;Kenya;3;XXX
+110;Kiribati;5;XXX
+111;Korea, Democratic People's Rep. (North Korea);5;XXX
+112;Korea, Republic of (South Korea);3;XXX
+113;Kosovo;3;XXX
+114;Kuwait;3;XXX
+115;Kyrgyzstan;5;XXX
+116;Lao, People's Democratic Republic;3;XXX
+117;Latvia;3;XXX
+118;Lebanon;5;XXX
+119;Lesotho;5;XXX
+120;Liberia;3;XXX
+121;Libya;3;XXX
+122;Liechtenstein;3;XXX
+123;Lithuania;5;XXX
+124;Luxembourg;5;XXX
+125;Macau;3;XXX
+126;Madagascar;5;XXX
+127;Malawi;5;XXX
+128;Malaysia;5;XXX
+129;Maldives;3;XXX
+130;Mali;5;XXX
+131;Malta;5;XXX
+132;Marshall Islands;5;XXX
+133;Martinique;5;XXX
+134;Mauritania;5;XXX
+135;Mauritius;5;XXX
+136;Mayotte;5;XXX
+137;Mexico;5;XXX
+138;Micronesia, Federal States of;3;XXX
+139;Moldova, Republic of;3;XXX
+140;Monaco;5;XXX
+141;Mongolia;3;XXX
+142;Montenegro;5;XXX
+143;Montserrat;3;XXX
+144;Morocco;5;XXX
+145;Mozambique;5;XXX
+146;Myanmar, Burma;3;XXX
+147;Namibia;5;XXX
+148;Nauru;5;XXX
+149;Nepal;3;XXX
+150;Netherlands;5;XXX
+151;Netherlands Antilles;3;XXX
+152;New Caledonia;3;XXX
+153;New Zealand;5;XXX
+154;Nicaragua;3;XXX
+155;Niger;5;XXX
+156;Nigeria;5;XXX
+157;Niue;3;XXX
+158;North Macedonia;5;XXX
+159;Northern Mariana Islands;3;XXX
+160;Norway;5;XXX
+161;Oman;3;XXX
+162;Pakistan;3;XXX
+163;Palau;5;XXX
+164;Palestinian territories;3;XXX
+165;Panama;5;XXX
+166;Papua New Guinea;3;XXX
+167;Paraguay;5;XXX
+168;Peru;5;XXX
+169;Philippines;3;XXX
+170;Pitcairn Island;3;XXX
+171;Poland;5;XXX
+172;Portugal;3;XXX
+173;Puerto Rico;3;XXX
+174;Qatar;3;XXX
+175;Reunion Island;5;XXX
+176;Romania;3;XXX
+177;Russian Federation;3;XXX
+178;Rwanda;3;XXX
+179;Saint Kitts and Nevis;5;XXX
+180;Saint Lucia;3;XXX
+181;Saint Vincent and the Grenadines;5;XXX
+182;Samoa;5;XXX
+183;San Marino;5;XXX
+184;Sao Tome and Principe;3;XXX
+185;Saudi Arabia;5;XXX
+186;Senegal;5;XXX
+187;Serbia;5;XXX
+188;Seychelles;5;XXX
+189;Sierra Leone;5;XXX
+190;Singapore;5;XXX
+191;Slovakia (Slovak Republic);3;XXX
+192;Slovenia;5;XXX
+193;Solomon Islands;5;XXX
+194;Somalia;1;XXX
+195;South Africa;3;XXX
+196;South Sudan;5;XXX
+197;Spain;5;XXX
+198;Sri Lanka;3;XXX
+199;Sudan;5;XXX
+200;Suriname;5;XXX
+201;Swaziland (Eswatini);3;XXX
+202;Sweden;5;XXX
+203;Switzerland;3;XXX
+204;Syria, Syrian Arab Republic;5;XXX
+205;Taiwan (Republic of China);3;XXX
+206;Tajikistan;3;XXX
+207;"Tanzania; officially the United Republic of Tanzania";5;XXX
+208;Thailand;5;XXX
+209;Tibet;5;XXX
+210;Timor-Leste (East Timor);5;XXX
+211;Togo;3;XXX
+212;Tokelau;3;XXX
+213;Tonga;5;XXX
+214;Trinidad and Tobago;5;XXX
+215;Tunisia;3;XXX
+216;Turkey;5;XXX
+217;Turkmenistan;5;XXX
+218;Turks and Caicos Islands;3;XXX
+219;Tuvalu;5;XXX
+220;Uganda;5;XXX
+221;Ukraine;3;XXX
+222;United Arab Emirates;5;XXX
+223;United Kingdom;5;XXX
+224;United States;3;XXX
+225;Uruguay;3;XXX
+226;Uzbekistan;3;XXX
+227;Vanuatu;3;XXX
+228;Vatican City State (Holy See);3;XXX
+229;Venezuela;3;XXX
+230;Vietnam;3;XXX
+231;Virgin Islands (British);3;XXX
+232;Virgin Islands (U.S.);3;XXX
+233;Wallis and Futuna Islands;5;XXX
+234;Western Sahara;3;XXX
+235;Yemen;5;XXX
+236;Zambia;5;XXX
+237;Zimbabwe;3;XXX

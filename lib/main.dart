@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         RepositoryProvider<Database>(
-            create: (context) => constructDb(logStatements: true)),
+            create: (context) => constructDb(logStatements: false)),
         BlocProvider<ApplicationBloc>(
           create: (context) {
             final db = RepositoryProvider.of<Database>(context);
