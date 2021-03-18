@@ -298,11 +298,8 @@ class $CountriesTable extends Countries
   @override
   GeneratedTextColumn get currency => _currency ??= _constructCurrency();
   GeneratedTextColumn _constructCurrency() {
-    return GeneratedTextColumn(
-      'currency',
-      $tableName,
-      true,
-    );
+    return GeneratedTextColumn('currency', $tableName, true,
+        minTextLength: 3, maxTextLength: 3);
   }
 
   final VerificationMeta _securityMeta = const VerificationMeta('security');

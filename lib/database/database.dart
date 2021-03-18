@@ -17,7 +17,7 @@ class Countries extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get reference => integer()();
   TextColumn get label => text().nullable()();
-  TextColumn get currency => text().nullable()();
+  TextColumn get currency => text().withLength(min: 3, max: 3).nullable()();
   IntColumn get security => integer().nullable()();
   DateTimeColumn get creationDate => dateTime().nullable()();
 }

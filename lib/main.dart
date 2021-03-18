@@ -28,8 +28,10 @@ class _MyAppState extends State<MyApp> {
       providers: [
         RepositoryProvider<Database>(
             // ignore: avoid_redundant_argument_values
+            lazy: true,
             create: (context) => constructDb(logStatements: false)),
         BlocProvider<ApplicationBloc>(
+          lazy: true,
           create: (context) {
             final db = RepositoryProvider.of<Database>(context);
             return ApplicationBloc(db);
