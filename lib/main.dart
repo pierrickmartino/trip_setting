@@ -27,9 +27,9 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         RepositoryProvider<Database>(
-            // ignore: avoid_redundant_argument_values
-            lazy: true,
-            create: (context) => constructDb(logStatements: false)),
+          lazy: true,
+          create: (context) => constructDb(logStatements: false),
+        ),
         BlocProvider<ApplicationBloc>(
           lazy: true,
           create: (context) {
@@ -61,20 +61,38 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ApplicationBloc get bloc => BlocProvider.of<ApplicationBloc>(context);
 
-  Future<int> _future;
+  int countriesCounter;
 
   /// To improve performance, the database must be filled before any display
   /// Replacing the listView with a blankPage is a huge gain in write performance
   /// Frost is now almost non-existent
-  void initDatabase() {
-    _future = bloc.getCountriesCounter;
+  Future<dynamic> initDatabase() async {
+    countriesCounter = await bloc.getCountriesCounter;
+    setState(() {});
+  }
+
+  // Use to show or not the Settings button
+  bool _isVisible;
+
+  @override
+  void initState() {
+    // For performance issue, very important to call this function on top of the others
+    initDatabase();
+    super.initState();
+
+    // SettingButton is hidden by default
+    _isVisible = false;
+
+    // Show only SettingButton if the database is filled
+    if (countriesCounter == 0) {
+      _isVisible = false;
+    } else {
+      _isVisible = true;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    // For performance issue, very important to call this function on top of the others
-    initDatabase();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -150,16 +168,18 @@ class _MyHomePageState extends State<MyHomePage> {
               Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            SizedBox(
-              width: 60,
-              height: 60,
-              child: CircularProgressIndicator(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 16),
-              child: Text('Awaiting result...'),
-            ),
+          children: <Widget>[
+            if (_isVisible = true)
+              const OutlinedButton(
+                onPressed: null,
+                child: Text('Settings'),
+              )
+            else
+              const SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
           ],
         ),
       )),
