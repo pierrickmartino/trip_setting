@@ -16,6 +16,8 @@ class ApplicationBloc extends Cubit<ChangeStack> {
     return db.watchWeatherInCountry(_country);
   }
 
+  Future<int> get getCountriesCounter => db.countCountries;
+
   Future<void> insertCountry(
     String label,
     String currency,

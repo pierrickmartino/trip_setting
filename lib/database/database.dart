@@ -215,6 +215,9 @@ class Database extends _$Database {
 
   Stream<List<Country>> get watchAllCountries => select(countries).watch();
 
+  Future<int> get countCountries =>
+      select(countries).get().then((value) => value.length);
+
   Future<dynamic> insertCountry(CountriesCompanion _country) async {
     await into(countries).insert(_country);
   }
